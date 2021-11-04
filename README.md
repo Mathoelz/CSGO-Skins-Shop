@@ -18,6 +18,9 @@ The users and skins are managed within a database in the backend.
 
 ## Programming language and tools
 
+* Html
+* CSS
+* Javascript
 * Java
 * Quarkus
 * MySQL
