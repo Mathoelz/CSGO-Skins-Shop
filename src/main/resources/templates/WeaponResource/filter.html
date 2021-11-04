@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Blog Home - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+  
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="http://localhost:9090/weapon/index.html">MM-Skins</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar Search-->
+      <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search for..." id="txtInput" aria-label="Search"
+            aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+            <button class="btn btn-primary" onclick="myFunction()" type="button"><i class="fas fa-search"></i></button>
+            <script>
+              function myFunction() {
+                parent.location = 'http://localhost:9090/weapon/' + document.getElementById("txtInput").value + '/search.html';
+
+              }
+            </script>
+          </div>
+        </div>
+      </form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="http://localhost:9090/user/cart.html">Cart</a>
+            <a class="dropdown-item" href="http://localhost:9090/user/profile/show.html">Profile</a>
+            <a class="dropdown-item" href="http://localhost:9090/user/sell.html">Sell</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="http://localhost:9090/weapon/index.html" onclick="logOut()">Logout</a>
+          </div>
+        </li>
+      </ul>
+  </nav>
+
+  
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header>
+      <h1>.</h1>
+    </header>
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="http://localhost:9090/weapon/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{value}</li>
+      </ol>
+    </nav>
+
+    <div class="row">
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-3">
+
+        <!-- Categories Widget -->
+        <div class="card shadow my-4" id="checkbox-container" style="position: sticky; top: 80px;">
+          <h5 class="card-header">Filter</h5>
+          <div class="card-body">
+            <div class="row">
+              <!-- Card Header - Accordion -->
+              <a href="#collapseWeaponTypeCard" class="btn btn-link collapsed" data-toggle="collapse">
+                <h6 class="m-0 font-weight-bold text-primary">Weapon Type</h6>
+              </a>
+              <!-- Card Content - Collapse -->
+              <div class="collapse show" id="collapseWeaponTypeCard" style="">
+                <div class="col-lg collapse show">
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('Knife')" id="knife" for="knife">Knife</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('Pistol')" id="pistol" for="pistol">Pistol</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('SMG')" id="smg" for="smg">SMG</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('Rifle')" id="rifle" for="rifle">Rifle</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('Sniper Rifle')" id="sniperRifle" for="sniperRifle">Sniper Rifle</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('Shotgun')" id="shotgun" for="shotgun">Shotgun</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterWeapon('Machinegun')" id="machinegun" for="machinegun">Machinegun</a>
+                  </div>
+                </div>
+              </div>
+              <script>
+                function filterWeapon(weapon_type) {
+                  parent.location = 'http://localhost:9090/weapon/filter/weapon_type/' + weapon_type.replace(" ", "%20") + ".html";
+                }
+  
+              </script>
+            </div>
+
+            <div class="row">
+              <!-- Card Header - Accordion -->
+              <a href="#collapseExteriorCard" class="btn btn-link collapsed" data-toggle="collapse">
+                <h6 class="m-0 font-weight-bold text-primary">Exterior</h6>
+              </a>
+              <!-- Card Content - Collapse -->
+              <div class="collapse show" id="collapseExteriorCard" style="">
+                <div class="col-lg collapse show">
+                  <div class="custom-control">
+                    <a href="#" onclick="filterByExterior('Factory New')" id="factoryNew" value="Factory New">Factory
+                      New</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterByExterior('Minimal Wear')" id="minimalWear" for="minimalWear">Minimal
+                      Wear</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterByExterior('Field-Tested')" id="fieldTested"
+                      for="fieldTested">Field-Tested</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterByExterior('Well-Worn')" id="wellWorn" for="wellWorn">Well-Worn</a>
+                  </div>
+                  <div class="custom-control custom-checkbox">
+                    <a href="#" onclick="filterByExterior('Battle-Scarred')" id="battleScarred"
+                      for="battleScarred">Battle-Scarred</a>
+                  </div>
+                </div>
+              </div>
+              <script>
+                function filterByExterior(exterior) {
+                  parent.location = 'http://localhost:9090/weapon/filter/exterior/' + exterior.replace(" ", "%20") + ".html";
+                }
+  
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Entries Column -->
+      <div class="col-lg-9">
+
+        <div class="row">
+        {#if weapons.size > 0}
+          {#for weapon in weapons}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow">
+              <div class="card-header text-muted">
+                <h5 class="card-title text-center"><a>{weapon.gun_type}</a> | <a>{weapon.weapon_name} </a></h5>
+              </div>
+              <div class="card-body" style="text-align: center;">
+                <form class="col-md-12 center-block">
+                  <div class="form-group">
+                    <a class="btn btn-lg btn-block btn-sm"
+                      style="background-color:#{weapon.rarity_color}; border-radius: 25px;">{weapon.rarity}
+                      {weapon.weapon_type}</a>
+                  </div>
+                </form>
+                <div class="d-flex justify-content-center align-items-center rounded"
+                  style="height: 150px; background-color: rgb(233, 236, 239);">
+                  <span style="color: rgb(166, 168, 170);"><img
+                      src="https://steamcommunity-a.akamaihd.net/economy/image/{weapon.icon_url}" alt="Admin"
+                      width="250">
+                </div>
+                <hr style="width:75%; margin-left:12.5% !important; margin-right:12.5% !important;">
+
+                <h2 class="text-center">{weapon.price}$</h2>
+                <a href="http://localhost:9090/weapon/{weapon.id}.html" class="btn btn-primary">Read More &rarr;</a>
+                <a href="#" class="btn btn-primary"
+                  onclick="addToCart({weapon.id})"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path
+                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                  </svg></a>
+                  <script>
+                    function addToCart(weapon_id) {
+                      const Http = new XMLHttpRequest();
+                      const url = "http://localhost:9090/weapon/addToCart/" + weapon_id;
+                      Http.onreadystatechange = function () {
+                        if (Http.readyState == XMLHttpRequest.DONE) {
+                          parent.location = 'http://localhost:9090/weapon/index.html'
+                        }
+                      }
+                      Http.open("PUT", url);
+                      Http.send();
+                    }
+                  </script>
+              </div>
+              <div class="card-footer text-muted">Posted on January 1, 2020</div>
+            </div>
+          </div>
+          {/for}
+          {#else}
+          <hr>
+          <div class="modal-dialog modal-content modal-body">
+            <h4 class="text-center">No skins were found :(</h4>
+          </div>
+          {/if}
+        <!-- Pagination -->
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark" style="position:relative;
+    bottom: 0;
+    width: 100%;">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

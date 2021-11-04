@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Edit Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="http://localhost:9090/weapon/index.html">MM-Skins</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="http://localhost:9090/user/cart.html">Cart</a>
+                        <a class="dropdown-item" href="http://localhost:9090/user/profile/show.html">Profile</a>
+                        <a class="dropdown-item" href="http://localhost:9090/user/sell.html">Sell</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://localhost:9090/weapon/index.html"
+                            onclick="logOut()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header>
+            <h1>.</h1>
+        </header>
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="http://localhost:9090/weapon/index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="http://localhost:9090/user/profile/show.html">User</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="container">
+            <div class="row flex-lg-nowrap">
+                <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+                    <div class="card p-3">
+                        <div class="e-navlist e-navlist--active-bg">
+                            <h6 class="card-title font-weight-bold">Need Support?</h6>
+                            <p class="card-text">Get fast, free help from our friendly assistants.</p>
+                            <button type="button" class="btn btn-primary">Contact Us</button>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="e-profile">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-auto mb-3">
+                                                <div class="mx-auto" style="width: 140px;">
+                                                    <div class="d-flex justify-content-center align-items-center rounded"
+                                                        style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                        <span
+                                                            style="color: rgb(166, 168, 170); font: bold 8pt Arial;"><img
+                                                                src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                                                alt="Admin" class="rounded-circle" width="150"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                                <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                    <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{user.kunde.firstname}
+                                                        {user.kunde.lastname}</h4>
+                                                    <p class="mb-0">@{user.username}</p>
+                                                </div>
+                                                <div class="text-center text-sm-right">
+                                                    <span class="badge badge-secondary">{user.role}</span>
+                                                    <!--div class="text-muted"><small>Joined 09 Dec 2017</small></div-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content pt-3">
+                                            <div class="tab-pane active">
+                                                <form class="form" novalidate="">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>First Name</label>
+                                                                        <input class="form-control" type="text"
+                                                                            name="name" placeholder="First Name"
+                                                                            id="firstName"
+                                                                            value="{user.kunde.firstname}" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label>Last Name</label>
+                                                                        <input class="form-control" type="text"
+                                                                            name="name" placeholder="Last Name"
+                                                                            id="lastName" value="{user.kunde.lastname}"
+                                                                            required>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col mb-3">
+                                                                    <div class="form-group">
+                                                                        <label>Email</label>
+                                                                        <input class="form-control" type="text"
+                                                                            placeholder="user@example.com"
+                                                                            value="{user.email}" id="email">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col d-flex justify-content-end">
+                                                            <a href="#" onclick="editProfile()"
+                                                                class="btn btn-outline-primary">Save Changes</a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 mb-3">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="px-xl-3">
+                                        <button onclick="deleteAccount()" class="btn btn-block bg-danger text-white">
+                                            <span>Delete Account</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark" style="position:absolute;
+    bottom: 0;
+    width: 100%;">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+    <!-- /.row -->
+
+    <!-- /.container -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="../../javascript/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

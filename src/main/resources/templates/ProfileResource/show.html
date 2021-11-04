@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>User Profile</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Jumbotron Header -->
+  <header>
+    <h1>.</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="http://localhost:9090/weapon/index.html">MM-Skins</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <ul class="navbar-nav ml-auto ml-md-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="http://localhost:9090/user/cart.html">Cart</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="http://localhost:9090/user/sell.html">Sell</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="http://localhost:9090/weapon/index.html" onclick="logOut()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="http://localhost:9090/weapon/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">User</li>
+      </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <!-- Page Features -->
+
+    <div class="row text-center">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
+                width="150">
+              <div class="mt-3">
+                <h4>{user.kunde.firstname} {user.kunde.lastname}</h4>
+                <p class="text-secondary mb-1">Balance: <strong>{user.balance} </strong>$</p>
+                <a onclick="myFunction()" class="btn btn-outline-primary">Add
+                  Funds</a>
+                <script>
+                  function myFunction() {
+                    var sum = prompt("How much do you wanna add?");
+                    sum = sum.replace(",", ".");
+                    if (sum != null) {
+                      sum = parseFloat(sum);
+                      if (isNaN(sum)) {
+                        alert("Wrong value");
+                      }
+                      else {
+                        parent.location = "http://localhost:9090/user/profile/addFunds.html?sum=" + sum;
+                      }
+
+                    }
+                  }
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {user.kunde.firstname} {user.kunde.lastname}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {user.email}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Username</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {user.username}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Balance</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {user.balance} $
+              </div>
+            </div>
+            <hr>
+            <a href="http://localhost:9090/user/profile/edit.html" class="btn btn-outline-primary">Edit
+              Profile</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    {#if weapons.size == 0}
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="text-center">You're not selling any weapons!</h4>
+        </div>
+        <div class="modal-footer">
+          <form class="form col-md-12 center-block">
+            <div class="form-group">
+              <a href="http://localhost:9090/user/sell.html" class="btn btn-success btn-lg btn-block"><span
+                  class="glyphicon glyphicon-arrow-left"></span>Sell now</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {#else}
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Coupon</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {#for weapon in weapons}
+            <tr>
+              <td><img src="https://steamcommunity-a.akamaihd.net/economy/image/{weapon.icon_url}" class="img-cart"
+                  style="height:75px;width:150px;"></td>
+              <td><strong>{weapon.gun_type}</strong>
+                <p>{weapon.weapon_name}</p>
+              </td>
+              <td>
+                <form class="coupon-form" method="post">
+                  {#if weapon.discount == null}
+                  <input id="value" class="form-control form-control-sm" type="text" placeholder="Value" required="">
+                  <p hidden id="weapon_id">{weapon.id}</p>
+                  <a class="btn btn-outline-primary btn-sm" onclick="createDiscount()">Create coupon</a>
+                  <script>
+                    function createDiscount() {
+                      var Http = new XMLHttpRequest();
+                      var url = "http://localhost:9090/discount/create?"
+                      var value = document.getElementById('value').value;
+                      var wepID = document.getElementById('weapon_id').innerHTML;
+                      var fullURL = url + "id=" + wepID + "&value=" + value;
+                      Http.onreadystatechange = function () {
+                        if (Http.readyState == XMLHttpRequest.DONE) {
+                          // 1: code successfully created
+                          if (Http.responseText == "true") {
+                            location.reload();
+                          }
+                          // 0: code creation failed
+                          else {
+                            alert(`Coupon could not be created!`);
+                          }
+                        }
+                      }
+                      Http.open("PUT", fullURL);
+                      Http.send();
+
+                    }
+                  </script>
+                  {#else}
+                  <p>Code: {weapon.discount.code}</p>
+                  <p>Value: $ {weapon.discount.value}</p>
+                  <input id="discountValue" class="form-control form-control-sm" type="text" placeholder="Value code"
+                    required="">
+                  <a class="btn btn-outline-primary btn-sm" onclick="changeDiscount()">Change coupon value</a>
+                  <p hidden id="discountID">{weapon.discount.id}</p>
+                  {/if}
+                  <script>
+                    function changeDiscount() {
+                      var Http = new XMLHttpRequest();
+                      var url = "http://localhost:9090/discount/setDiscount?"
+                      var discountValue = document.getElementById('discountValue').value;
+                      var discountID = document.getElementById('discountID').innerHTML;
+                      var fullURL = url + "id=" + discountID + "&value=" + discountValue;
+                      Http.onreadystatechange = function () {
+                        if (Http.readyState == XMLHttpRequest.DONE) {
+                          // 1: change discount successfull
+                          if (Http.responseText == "true") {
+                            location.reload();
+                          }
+                          // 0: change discount failed
+                          else {
+                            alert(`Please write an acceptable value!`);
+                          }
+                        }
+                      }
+                      Http.open("PUT", fullURL);
+                      Http.send();
+                    }
+                  </script>
+                </form>
+              </td>
+              <td>$ {weapon.price}</td>
+            </tr>
+            {/for}
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+        {/if}
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- /.container -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script type="text/javascript" src="../../javascript/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark" style="position:relative;
+bottom: 0;
+width: 100%;">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+  </div>
+</footer>
+
+</html>

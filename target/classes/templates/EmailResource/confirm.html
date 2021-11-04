@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Categories Widget -->
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="jumbotron text-center">
+                        <h1 class="display-3">Your order is on its way</h1>
+                        <p class="lead">Hello {user.kunde.firstname}, thank you for your payment. We will shortly send
+                            your skins</p>
+                        <p class="lead"><strong>Here is the overview of your order</strong></p>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Weapon</th>
+                                            <th>Image</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {#for weapon in user.cart}
+                                        <tr>
+                                            <td><strong>{weapon.gun_type}</strong>
+                                                <p>{weapon.weapon_name}</p>
+                                            </td>
+                                            <td><img src="https://steamcommunity-a.akamaihd.net/economy/image/{weapon.icon_url}"
+                                                    class="img-cart" style="height:75px;width:150px;"></td>
+                                            <td>$ {weapon.price}</td>
+                                        </tr>
+                                        {/for}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <p>Having trouble? <a href="">Contact us</a></p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-sm" href="http://localhost:9090/weapon/index.html"
+                                role="button">Back to website</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

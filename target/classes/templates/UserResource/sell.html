@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maxim Zitnikowski" />
+    <title>Sell Weapon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body class="bg-primary">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="http://localhost:9090/weapon/index.html">MM-Skins</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="http://localhost:9090/users/cart.html">Cart</a>
+                        <a class="dropdown-item" href="http://localhost:9090/user/profile/show.html">Profile</a>
+                        <a class="dropdown-item" href="#">Sell</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://localhost:9090/weapon/index.html"
+                            onclick="logOut()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header>
+            <h1>.</h1>
+        </header>
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="http://localhost:9090/weapon/index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sell</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">Sell your Skin</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputFirstName">Weapon
+                                                    Name</label>
+                                                <input class="form-control py-4" id="inputWeaponName" type="text"
+                                                    placeholder="Enter Weapon Name" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="inputLastName">
+                                                    Icon Url
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                    <title>
+                                                        Needed will only be with image code not the entire URL. 
+                                                        Example: -9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot7HxfDhjxszJemkV09-5gZKKkPLLMrfFqWNU6dNoxL3H94qm3Ffm_RE6amn2ctWXdlI2ZwqB-FG_w-7s0ZK-7cjLzyE37HI8pSGKrIDGOAI
+                                                    </title>
+                                                    <path
+                                                        d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                    </svg>
+                                                </label>
+                                                <input class="form-control py-4" id="inputIconUrl" type="text"
+                                                    placeholder="Enter Icon Url" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="dropdown">
+                                        <label class="small mb-1" for="exampleFormControlSelect1">Weapon
+                                            Type</label>
+                                        <select class="form-control" id="dropdownWeaponType">
+                                            <option value="Knife">Knife</option>
+                                            <option value="Pistol">Pistol</option>
+                                            <option value="SMG">SMG</option>
+                                            <option value="Rifle">Rifle</option>
+                                            <option value="Sniper Rifle">Sniper Rifle</option>
+                                            <option value="Shotgun">Shotgun</option>
+                                            <option value="Machinegun">Machinegun</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="dropdown">
+                                        <label class="small mb-1" for="exampleFormControlSelect1">Exterior</label>
+                                        <select class="form-control" id="dropdownExterior">
+                                            <option>Factory New</option>
+                                            <option>Minimal Wear</option>
+                                            <option>Field-Tested</option>
+                                            <option>Well-Worn</option>
+                                            <option>Battle-Scarred</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="dropdown">
+                                                <label class="small mb-1" for="exampleFormControlSelect1">Rarity</label>
+                                                <select class="form-control" id="dropdownRarity"
+                                                    onchange="dynamicdropdown(this.options[this.selectedIndex].value)">
+                                                    <option value="Consumer grade">Consumer grade</option>
+                                                    <option value="Industrial grade">Industrial grade</option>
+                                                    <option value="Mil-spec">Mil-spec</option>
+                                                    <option value="Restricted">Restricted</option>
+                                                    <option value="Classified">Classified</option>
+                                                    <option value="Covert">Covert</option>
+                                                    <option value="Exceedingly Rare">Exceedingly Rare</option>
+                                                    <option value="Contraband">Contraband</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="rarityColor">Rarity Color</label>
+                                                <a class="btn btn-block" id="rarityColor" value="b0c3d9"
+                                                    style="background-color:#b0c3d9; border-radius: 5px;">b0c3d9</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputConfirmPassword">Skin
+                                            Price</label>
+                                        <input class="form-control py-4" id="inputPrice" type="number"
+                                            placeholder="Enter Skin Price" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="small mb-1" for="inputConfirmPassword">Gun
+                                            Type</label>
+                                        <input class="form-control py-4" id="inputGunType" type="text"
+                                            placeholder="Enter Gun Type" />
+                                    </div>
+                                    <div class="form-group mt-4 mb-0">
+                                        <a class="btn btn-primary btn-block" onclick="sellSkin()" href="#">Offer my Skin
+                                            for
+                                            Sale</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="../javascript/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+</footer>
+
+
+
+</html>

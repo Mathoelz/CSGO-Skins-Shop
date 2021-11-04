@@ -1,0 +1,21 @@
+# Sources: 
+# https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee
+# https://hub.docker.com/_/mysql
+#
+
+version: '3.3'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: root_pw
+      MYSQL_DATABASE: mm_skins
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - 3307:3306
+    
